@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Address.aspx.cs" Inherits="_19030690_Abhinav_Parajuli.Address" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div>
+        <h2 style="color:white; margin-bottom:50px">Address</h2>
+    </div>
     <div class="content-box">
         <div class="grid-holder">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ADDRESS_ID" DataSourceID="AddressDatasource" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%">
@@ -23,18 +26,18 @@
          </div>
      </div>
 
-    <div class="content-box" style="min-height:20vh; height:auto; margin-top:10px;">
+    <div style="padding:10px">
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="ADDRESS_ID" DataSourceID="AddressDatasource">
             <InsertItemTemplate>
                 ADDRESS:
                 <asp:TextBox CssClass="form-control input-sm" ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>' />
                 <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" CssClass="btn btn-default" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="Cancel" Text="Cancel" />
             </InsertItemTemplate>
             <ItemTemplate>
                 <br />
-                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="New" Text="Add address" />
             </ItemTemplate>
             <RowStyle ForeColor="White" />
         </asp:FormView>

@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Teacher.aspx.cs" Inherits="_19030690_Abhinav_Parajuli.Teacher" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">s
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+     <div>
+        <h2 style="color:white; margin-bottom:50px">Teacher</h2>
+    </div>
     <div class="content-box">
         <div class="grid-holder">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="TEACHER_ID" DataSourceID="TeacherDatasource" Width="100%" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
@@ -42,7 +45,7 @@
         </div>
     </div>
 
-    <div >
+    <div style="padding:10px" >
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="TEACHER_ID" DataSourceID="TeacherDatasource">
             <EditRowStyle ForeColor="White" />
             <InsertItemTemplate>
@@ -55,13 +58,13 @@
                 PHONE_NUMBER:
                 <asp:TextBox CssClass="form-control input-sm" ID="PHONE_NUMBERTextBox" runat="server" Text='<%# Bind("PHONE_NUMBER") %>' />
                 <br />
-                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CssClass="btn btn-default" CommandName="Insert" Text="Insert" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="Cancel" Text="Cancel" />
             </InsertItemTemplate>
             <InsertRowStyle ForeColor="White" />
             <ItemTemplate>
                 <br />
-                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="New" Text="Add teacher" />
             </ItemTemplate>
             <RowStyle ForeColor="White" />
         </asp:FormView>

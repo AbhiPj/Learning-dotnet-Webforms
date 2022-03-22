@@ -2,6 +2,9 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+     <div>
+        <h2 style="color:white; margin-bottom:50px">Module</h2>
+    </div>
         <div class="content-box">
             <div class="grid-holder">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MODULE_CODE" DataSourceID="ModuleDatasource" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%">
@@ -41,7 +44,7 @@
     </UpdateParameters>
 </asp:SqlDataSource>
 
-<div>
+<div style="padding:10px">
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="MODULE_CODE" DataSourceID="ModuleDatasource">
         <EditRowStyle ForeColor="White" />
         <InsertItemTemplate>
@@ -51,12 +54,12 @@
             CREDIT_HOUR:
             <asp:TextBox CssClass="form-control input-sm" ID="CREDIT_HOURTextBox" runat="server" Text='<%# Bind("CREDIT_HOUR") %>' />
             <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CssClass="btn btn-default" CommandName="Insert" Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
             <br />
-            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CssClass="btn btn-default" CommandName="New" Text="Add module" />
         </ItemTemplate>
     </asp:FormView>
 </div>
