@@ -15,6 +15,8 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="StyleSheet.css" rel="stylesheet" />
+ <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
 
 </head>
 <body>
@@ -36,7 +38,7 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/default">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>

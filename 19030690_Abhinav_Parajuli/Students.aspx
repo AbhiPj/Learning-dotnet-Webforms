@@ -8,7 +8,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="StudentDatasource" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
                     <asp:BoundField DataField="STUDENT_NAME" HeaderText="STUDENT_NAME" SortExpression="STUDENT_NAME" />
                     <asp:BoundField DataField="STUDENT_ADDRESS" HeaderText="STUDENT_ADDRESS" SortExpression="STUDENT_ADDRESS" />
@@ -30,9 +30,11 @@
             <EditRowStyle ForeColor="White" />
             <InsertItemTemplate>
                 STUDENT_NAME:
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Student_name is required." ControlToValidate="STUDENT_NAMETextBox" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:TextBox CssClass="form-control input-sm" ID="STUDENT_NAMETextBox" runat="server" Text='<%# Bind("STUDENT_NAME") %>' />
                 <br />
                 STUDENT_ADDRESS:
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Address is required." ControlToValidate="STUDENT_ADDRESSTextBox" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:TextBox CssClass="form-control input-sm" ID="STUDENT_ADDRESSTextBox" runat="server" Text='<%# Bind("STUDENT_ADDRESS") %>' />
                 <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CssClass="btn btn-default" CausesValidation="True" CommandName="Insert" Text="Insert" />
