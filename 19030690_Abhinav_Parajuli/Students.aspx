@@ -8,11 +8,10 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="StudentDatasource" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" Width="100%">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
                     <asp:BoundField DataField="STUDENT_NAME" HeaderText="STUDENT_NAME" SortExpression="STUDENT_NAME" />
                     <asp:BoundField DataField="STUDENT_ADDRESS" HeaderText="STUDENT_ADDRESS" SortExpression="STUDENT_ADDRESS" />
-                    <asp:BoundField DataField="EXAMINATION_STATUS" HeaderText="EXAMINATION_STATUS" SortExpression="EXAMINATION_STATUS" />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                 <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -36,20 +35,17 @@
                 STUDENT_ADDRESS:
                 <asp:TextBox CssClass="form-control input-sm" ID="STUDENT_ADDRESSTextBox" runat="server" Text='<%# Bind("STUDENT_ADDRESS") %>' />
                 <br />
-                EXAMINATION_STATUS:
-                <asp:TextBox CssClass="form-control input-sm" ID="EXAMINATION_STATUSTextBox" runat="server" Text='<%# Bind("EXAMINATION_STATUS") %>' />
-                <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CssClass="btn btn-default" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" CssClass="btn btn-default" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CssClass="btn btn-default" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </InsertItemTemplate>
             <ItemTemplate>
                 <br />
-                &nbsp;<asp:LinkButton ID="NewButton" CssClass="btn btn-default" runat="server" CausesValidation="False" CommandName="New" Text="Add new Student"/>
+                &nbsp;<asp:LinkButton ID="NewButton" CssClass="btn btn-default" runat="server" CausesValidation="False" CommandName="New" Text="New" />
             </ItemTemplate>
             <RowStyle ForeColor="White" Wrap="False" />
         </asp:FormView>
     </div>
-    <asp:SqlDataSource ID="StudentDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:Berkeley_college %>" DeleteCommand="DELETE FROM &quot;STUDENT&quot; WHERE &quot;STUDENT_ID&quot; = :STUDENT_ID" InsertCommand="INSERT INTO &quot;STUDENT&quot; (&quot;STUDENT_ID&quot;, &quot;STUDENT_NAME&quot;, &quot;STUDENT_ADDRESS&quot;, &quot;EXAMINATION_STATUS&quot;) VALUES (:STUDENT_ID, :STUDENT_NAME, :STUDENT_ADDRESS, :EXAMINATION_STATUS)" ProviderName="<%$ ConnectionStrings:Berkeley_college.ProviderName %>" SelectCommand="SELECT * FROM &quot;STUDENT&quot;" UpdateCommand="UPDATE &quot;STUDENT&quot; SET &quot;STUDENT_NAME&quot; = :STUDENT_NAME, &quot;STUDENT_ADDRESS&quot; = :STUDENT_ADDRESS, &quot;EXAMINATION_STATUS&quot; = :EXAMINATION_STATUS WHERE &quot;STUDENT_ID&quot; = :STUDENT_ID">
+    <asp:SqlDataSource ID="StudentDatasource" runat="server" ConnectionString="<%$ ConnectionStrings:Berkeley_college %>" DeleteCommand="DELETE FROM &quot;STUDENT&quot; WHERE &quot;STUDENT_ID&quot; = :STUDENT_ID" InsertCommand="INSERT INTO &quot;STUDENT&quot; (&quot;STUDENT_ID&quot;, &quot;STUDENT_NAME&quot;, &quot;STUDENT_ADDRESS&quot;) VALUES (:STUDENT_ID, :STUDENT_NAME, :STUDENT_ADDRESS)" ProviderName="<%$ ConnectionStrings:Berkeley_college.ProviderName %>" SelectCommand="SELECT * FROM &quot;STUDENT&quot;" UpdateCommand="UPDATE &quot;STUDENT&quot; SET &quot;STUDENT_NAME&quot; = :STUDENT_NAME, &quot;STUDENT_ADDRESS&quot; = :STUDENT_ADDRESS WHERE &quot;STUDENT_ID&quot; = :STUDENT_ID">
         <DeleteParameters>
             <asp:Parameter Name="STUDENT_ID" Type="Decimal" />
         </DeleteParameters>
@@ -57,12 +53,10 @@
             <asp:Parameter Name="STUDENT_ID" Type="Decimal" />
             <asp:Parameter Name="STUDENT_NAME" Type="String" />
             <asp:Parameter Name="STUDENT_ADDRESS" Type="String" />
-            <asp:Parameter Name="EXAMINATION_STATUS" Type="String" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="STUDENT_NAME" Type="String" />
             <asp:Parameter Name="STUDENT_ADDRESS" Type="String" />
-            <asp:Parameter Name="EXAMINATION_STATUS" Type="String" />
             <asp:Parameter Name="STUDENT_ID" Type="Decimal" />
         </UpdateParameters>
 </asp:SqlDataSource>

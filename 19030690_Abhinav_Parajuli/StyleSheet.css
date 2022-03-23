@@ -83,7 +83,8 @@ body {
 }
 
 .content-box {
-    height: 40vh;
+    min-height: 40vh;
+    height:auto;
     background-color: #27293d;
     border-radius: 10px;
     box-shadow: 10px 10px inherit;
